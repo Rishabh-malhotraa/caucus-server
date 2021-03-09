@@ -9,8 +9,6 @@ const router = Router();
 // we will do our re-routing from the client side just send information from here
 // GET to /api/auth will return current logged in user info
 router.get("/auth", (req, res) => {
-  console.log(req.cookies);
-  console.log(req.user);
   if (!req.user) {
     return res.status(200).json({
       isLoggedIn: false,

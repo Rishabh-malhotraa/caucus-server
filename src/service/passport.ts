@@ -9,13 +9,11 @@ import { OAUTH_TABLE } from "../types";
 const date = new Date().toISOString();
 
 passport.serializeUser((user: any, done) => {
-  console.log("inside serialzie");
   console.log(user);
   done(null, user);
 });
 
 passport.deserializeUser(async (response: OAUTH_TABLE, done) => {
-  console.log("inside derserialze");
   console.log(response);
   try {
     const userRows = await knex<OAUTH_TABLE>("oauth").select().where({ user_id: response.user_id });
@@ -78,8 +76,6 @@ passport.use(
       try {
         const currentUserRows = await knex<OAUTH_TABLE>("oauth").select().where({ user_id: profile.id });
         const currentUser = currentUserRows[0];
-        console.log("inside google");
-        console.log(currentUser);
         if (currentUser) {
           done(undefined, currentUser);
         } else {

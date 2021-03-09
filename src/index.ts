@@ -11,6 +11,8 @@ import bodyParser from "body-parser";
 import socketioService from "./service/socket-io-service";
 import session from "express-session";
 import "./service/passport";
+import path from "path";
+// import cookieSession from "cookie-session";
 
 // import cookieSession from "cookie-session";
 
@@ -24,7 +26,8 @@ app.use(
     credentials: true, // allow session cookies from browser to pass throught
   })
 );
-app.use(cookieParser()); // parse cookies
+app.use(cookieParser());
+
 // app.use(
 //   cookieSession({
 //     secure: false,
@@ -34,34 +37,24 @@ app.use(cookieParser()); // parse cookies
 //   })
 // );
 
-// const isDevMode = process.env.NODE_ENV === "development";
 app.set("trust proxy", 1);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
   session({
-    secret: "secret",
+    secret: COOKIE_KEYS,
     name: "caucus-session",
     resave: false,
     saveUninitialized: false,
     cookie: {
       maxAge: 24 * 60 * 60 * 1000,
-      sameSite: true,
-      httpOnly: true,
-      // 2nd change.
       secure: false,
+      httpOnly: false,
+      sameSite: true, // 2nd change.
     },
   })
 );
-
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   res.header("Access-Control-Allow-Origin", req.headers.origin);
-//   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-//   res.header("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept");
-//   next();
-// });
 
 app.use(passport.initialize());
 app.use(passport.session()); // deserialize cookie from the browser
@@ -70,7 +63,12 @@ app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
 socketioService(httpServer, app);
 
-app.use("/", (req, res) => res.send("<h1>Server is Running :)))</h1>"));
+app.use(express.static(path.join(__dirname, "/../public")));
+
+// Handles any requests that don't match the ones above
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/../public/index.html"));
+});
 
 httpServer.listen(port, () => console.log(chalk.blueBright(`Express Server listening to port ${port}`)));
 
