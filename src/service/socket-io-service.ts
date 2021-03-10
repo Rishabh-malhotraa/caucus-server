@@ -1,12 +1,11 @@
-import { CLIENT_URL } from "../config.keys";
+import { CLIENT_URL as url } from "../config.keys";
 import { Server, Socket } from "socket.io";
 import { ServerType } from "../index";
 import { MessageProps, UserInfo } from "../types";
 import chalk from "chalk";
-import { Express } from "express";
-import { ExpressPeerServer } from "peer";
 
-const chatService = (httpServer: ServerType, app: Express): void => {
+const CLIENT_URL = url.replace(/^https:\/\//i, "http://");
+const chatService = (httpServer: ServerType): void => {
   const io = new Server(httpServer, {
     cors: {
       origin: CLIENT_URL,
@@ -14,11 +13,11 @@ const chatService = (httpServer: ServerType, app: Express): void => {
     },
   });
 
-  const peerServer = ExpressPeerServer(httpServer, {
-    path: "/voice-chat",
-  });
+  // const peerServer = ExpressPeerServer(httpServer, {
+  //   path: "/voice-chat",
+  // });
 
-  app.use("/", peerServer);
+  // app.use("/", peerServer);
   // Open the browser and check http://127.0.0.1:5000/voice-chat
 
   const socketToRoom: Record<string, string> = {};
@@ -35,7 +34,7 @@ const chatService = (httpServer: ServerType, app: Express): void => {
       userInfoMap[socket.id] = userInfo;
       const usersInRoom = io.sockets.adapter.rooms.get(roomID)?.size;
       // adding people to rooms
-      if (!usersInRoom || usersInRoom < 2) {
+      if (!usersInRoom || usersInRoom < 4) {
         socket.join(roomID);
         // here also add the peerJS ID
         socket.broadcast.to(roomID).emit("new-user-joined", userInfoMap[socket.id]);
@@ -44,6 +43,23 @@ const chatService = (httpServer: ServerType, app: Express): void => {
         return;
       }
     });
+
+    // ------------------SYNC EDITOR FAIL-----------------------
+
+    // socket.on("sync-new-user-code", (roomID: string) => {
+    //   const usersInRoom = io.sockets.adapter.rooms.get(roomID)?.size;
+    //   if (!usersInRoom || usersInRoom >= 1) {
+    //     console.log(usersInRoom);
+    //     socket.broadcast.to(roomID).emit("someone-asking-for-code");
+    //   }
+    // });
+
+    // socket.on("send-code-to-new-user", (roomID: string, code: string) => {
+    //   console.log(code);
+    //   socket.broadcast.to(roomID).emit("set-code", code);
+    // });
+
+    // ------------------SYNC EDITOR FAIL-----------------------
 
     socket.on("send-message", (body: MessageProps) => {
       const roomID = body.userInfo.roomID;

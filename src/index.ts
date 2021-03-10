@@ -62,7 +62,7 @@ app.use(passport.session()); // deserialize cookie from the browser
 
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
-socketioService(httpServer, app);
+socketioService(httpServer);
 
 app.use(express.static(path.join(__dirname, "/../public")));
 
