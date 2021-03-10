@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import passport from "passport";
 import chalk from "chalk";
-import { COOKIE_KEYS, CLIENT_URL, port } from "./config.keys";
+import { COOKIE_KEYS, CLIENT_URL as url, port } from "./config.keys";
 import authRoutes from "./routes/auth-routes";
 import apiRoutes from "./routes/api-routes";
 import cookieParser from "cookie-parser";
@@ -18,6 +18,7 @@ import path from "path";
 
 const app = express();
 const httpServer = new http.Server(app);
+const CLIENT_URL = url.replace(/^https:\/\//i, "http://");
 
 app.use(
   cors({
