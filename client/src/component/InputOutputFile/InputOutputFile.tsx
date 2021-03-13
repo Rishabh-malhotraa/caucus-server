@@ -11,7 +11,7 @@ import { SettingContext } from "service/SettingsContext";
 import { SettingsContextType } from "types";
 import styles from "./InputOutputFile.module.css";
 import Loader from "react-loader-spinner";
-import "../../../node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import "css/react-spinner-loader.css";
 
 interface AppProps {
   TextAreaRef: React.RefObject<HTMLDivElement>;
