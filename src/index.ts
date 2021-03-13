@@ -12,9 +12,6 @@ import socketioService from "./service/socket-io-service";
 import session from "express-session";
 import "./service/passport";
 import path from "path";
-// import cookieSession from "cookie-session";
-
-// import cookieSession from "cookie-session";
 
 const app = express();
 const httpServer = new http.Server(app);
@@ -28,15 +25,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-
-// app.use(
-//   cookieSession({
-//     secure: false,
-//     name: "session",
-//     maxAge: 24 * 60 * 60 * 1000,
-//     keys: [...COOKIE_KEYS],
-//   })
-// );
 
 app.set("trust proxy", 1);
 
@@ -64,11 +52,11 @@ app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
 socketioService(httpServer);
 
-app.use(express.static(path.join(__dirname, "/../public")));
+app.use(express.static(path.join(__dirname, "/../client/build")));
 
 // Handles any requests that don't match the ones above
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/../public/index.html"));
+  res.sendFile(path.join(__dirname + "/../client/build/index.html"));
 });
 
 httpServer.listen(port, () => console.log(chalk.blueBright(`Express Server listening to port ${port}`)));

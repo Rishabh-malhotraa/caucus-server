@@ -2,7 +2,7 @@ node_modules/**/*
 build/**/*
 certs/**/*
 src/data
-
+build
 .env
 
 

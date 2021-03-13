@@ -1,0 +1,50 @@
+.root {
+  background-color: #1e1e1e;
+  height: 100%;
+  border-radius: 0px 8px 0px 0px !important;
+}
+
+.toolbar {
+  position: relative !important;
+  background-color: #252526 !important;
+  color: whitesmoke !important;
+  border-radius: 0px 8px 0px 0px !important;
+}
+
+.btn-box {
+  height: 48px;
+  border-radius: 0px 8px 0px 0px !important;
+  position: absolute;
+  background-color: #00621e;
+  top: 0px;
+  right: 0px;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.btn-box button {
+  height: 100%;
+}
+
+.text-area {
+  display: flex;
+  flex-grow: 1;
+  background-color: #1e1e1e;
+  color: whitesmoke;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+} */
