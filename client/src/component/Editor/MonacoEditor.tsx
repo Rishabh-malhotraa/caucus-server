@@ -6,7 +6,7 @@ import MonacoConvergenceAdapter from "./MonacoAdapter";
 import { GuestNameContext } from "service/GuestNameContext";
 import { UserContext } from "service/UserContext";
 import { GuestNameContextTypes, SettingsContextType, UserContextTypes } from "types";
-import "css/monaco-collab-ext.css";
+import "../../css/monaco-collab-ext.css";
 import { SettingContext } from "service/SettingsContext";
 import { useSnackbar } from "notistack";
 import { useParams } from "react-router-dom";

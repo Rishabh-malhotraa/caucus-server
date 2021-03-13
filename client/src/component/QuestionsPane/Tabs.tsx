@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Tabs, Tab, TabPanel, TabList } from "react-tabs";
-import "css/react-tabs.css";
+import "../../css/react-tabs.css";
 import "./ReactTabs.css";
 import Settings from "./SettingsPage";
 import ProblemList from "./ProblemList/ProblemList";

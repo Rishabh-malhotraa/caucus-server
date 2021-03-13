@@ -1,6 +1,6 @@
 import { ColorAssigner } from "@convergence/color-assigner";
 import * as MonacoCollabExt from "@convergencelabs/monaco-collab-ext";
-import "css/monaco-collab-ext.css";
+import "../../css/monaco-collab-ext.css";
 
 class MonacoConvergenceAdapter {
   constructor(monacoEditor, realtimeString) {
