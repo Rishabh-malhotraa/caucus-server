@@ -55,12 +55,25 @@ router.post("/execute", async (req, res) => {
 
   const response = await axios({
     method: "POST",
-    url: JDOODLE_URL,
+    url: `${JDOODLE_URL}/execute`,
     data: {
       script: script,
       stdin: stdin,
       language: getLanguage[language],
       versionIndex: getLanguageVersion[language],
+      clientId: JDOODLE.clientID,
+      clientSecret: JDOODLE.clientSecret,
+    },
+    responseType: "json",
+  });
+  res.json(response.data);
+});
+
+router.get("/credit-spent", async (req, res) => {
+  const response = await axios({
+    method: "POST",
+    url: `${JDOODLE_URL}/credit-spent`,
+    data: {
       clientId: JDOODLE.clientID,
       clientSecret: JDOODLE.clientSecret,
     },
