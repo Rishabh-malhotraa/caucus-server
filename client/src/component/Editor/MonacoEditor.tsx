@@ -62,6 +62,7 @@ const MonacoEditor: React.FC<AppProps> = ({ code, defaultCode, setCode, MonacoEd
 
   useEffect(() => {
     if (defaultCode !== code) {
+      MonacoEditorRef.current?.setValue("");
       MonacoEditorRef.current?.setValue(defaultCode);
     }
   }, [defaultCode]);
@@ -71,7 +72,7 @@ const MonacoEditor: React.FC<AppProps> = ({ code, defaultCode, setCode, MonacoEd
       <Editor
         onMount={(editor) => handleEditorDidMount(editor)}
         theme={theme}
-        defaultValue={defaultCode}
+        // defaultValue={defaultCode}
         language={language}
         onChange={(value) => setCode(value || "")}
         options={{ wordWrap: "on", fontSize: fontSize, autoIndent: "advanced" }}

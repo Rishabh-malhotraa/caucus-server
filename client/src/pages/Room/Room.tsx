@@ -94,6 +94,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     socket.on("set-code", (partnerCode: string) => {
+      console.log("partner-code");
+      console.log(partnerCode);
       setDefaultCode(partnerCode);
     });
   }, [socket, code]);
