@@ -13,13 +13,6 @@ const chatService = (httpServer: ServerType): void => {
     },
   });
 
-  // const peerServer = ExpressPeerServer(httpServer, {
-  //   path: "/voice-chat",
-  // });
-
-  // app.use("/", peerServer);
-  // Open the browser and check http://127.0.0.1:5000/voice-chat
-
   const socketToRoom: Record<string, string> = {};
   const userInfoMap: Record<string, UserInfo> = {};
 
@@ -44,14 +37,10 @@ const chatService = (httpServer: ServerType): void => {
       }
     });
 
-    // ------------------SYNC EDITOR FAIL-----------------------
-
     socket.on("send-code-to-new-user", (roomID: string, code: string) => {
       console.log(code);
       socket.broadcast.to(roomID).emit("set-code", code);
     });
-
-    // ------------------SYNC EDITOR FAIL-----------------------
 
     socket.on("send-message", (body: MessageProps) => {
       const roomID = body.userInfo.roomID;
@@ -62,6 +51,11 @@ const chatService = (httpServer: ServerType): void => {
     socket.on("input-data", (props) => {
       const roomID = props.roomID;
       socket.broadcast.to(roomID).emit("emit-input-data", props.data);
+    });
+
+    socket.on("programming-language", (props) => {
+      const roomID = props.roomID;
+      socket.broadcast.to(roomID).emit("emit-programming-language", props.data);
     });
 
     socket.on("selected-question", (props) => {

@@ -62,7 +62,7 @@ const MonacoEditor: React.FC<AppProps> = ({ code, setCode, MonacoEditorRef }) =>
   return (
     <div style={{ flexGrow: 1, overflow: "hidden" }}>
       <Editor
-        value={code}
+        // value={code}
         defaultValue={code}
         onMount={(editor) => handleEditorDidMount(editor)}
         theme={theme}
