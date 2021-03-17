@@ -2,7 +2,10 @@ node_modules/**/*
 certs/**/*
 src/data
 .env
+dist/**/*
+dist
 
+client/.env
 
 *.jks
 *.p8

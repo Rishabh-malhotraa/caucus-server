@@ -6,7 +6,7 @@ import MonacoConvergenceAdapter from "./MonacoAdapter";
 import { GuestNameContext } from "service/GuestNameContext";
 import { UserContext } from "service/UserContext";
 import { GuestNameContextTypes, SettingsContextType, UserContextTypes } from "types";
-import "../../css/monaco-collab-ext.css";
+import "@convergencelabs/monaco-collab-ext/css/monaco-collab-ext.min.css";
 import { SettingContext } from "service/SettingsContext";
 import { useSnackbar } from "notistack";
 import { useParams } from "react-router-dom";
@@ -62,6 +62,8 @@ const MonacoEditor: React.FC<AppProps> = ({ code, setCode, MonacoEditorRef }) =>
   return (
     <div style={{ flexGrow: 1, overflow: "hidden" }}>
       <Editor
+        value={code}
+        defaultValue={code}
         onMount={(editor) => handleEditorDidMount(editor)}
         theme={theme}
         language={language}

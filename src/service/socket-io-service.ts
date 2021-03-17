@@ -46,18 +46,10 @@ const chatService = (httpServer: ServerType): void => {
 
     // ------------------SYNC EDITOR FAIL-----------------------
 
-    // socket.on("sync-new-user-code", (roomID: string) => {
-    //   const usersInRoom = io.sockets.adapter.rooms.get(roomID)?.size;
-    //   if (!usersInRoom || usersInRoom >= 1) {
-    //     console.log(usersInRoom);
-    //     socket.broadcast.to(roomID).emit("someone-asking-for-code");
-    //   }
-    // });
-
-    // socket.on("send-code-to-new-user", (roomID: string, code: string) => {
-    //   console.log(code);
-    //   socket.broadcast.to(roomID).emit("set-code", code);
-    // });
+    socket.on("send-code-to-new-user", (roomID: string, code: string) => {
+      console.log(code);
+      socket.broadcast.to(roomID).emit("set-code", code);
+    });
 
     // ------------------SYNC EDITOR FAIL-----------------------
 

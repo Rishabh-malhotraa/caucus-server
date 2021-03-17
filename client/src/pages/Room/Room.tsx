@@ -1,8 +1,8 @@
-import React, { useState, createRef, useRef, useContext } from "react";
+import React, { useState, createRef, useRef, useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import InputOutputFile from "component/InputOutputFile/InputOutputFile";
 import { ReflexContainer, ReflexElement, ReflexSplitter } from "react-reflex";
-import "../../css/react-reflex.css";
+import "react-reflex/styles.css";
 import style from "./Room.module.css";
 import { socket } from "service/socket";
 import { useSnackbar } from "notistack";
@@ -10,13 +10,13 @@ import ChatApp from "component/TextChat";
 import VoiceChat from "component/VoiceChat/VoiceChat";
 import { useParams } from "react-router-dom";
 import MonacoEditor from "component/Editor/MonacoEditor";
-import "../../css/monaco-collab-ext.css";
 import clsx from "clsx";
 import { GuestNameContext } from "service/GuestNameContext";
 import { UserContext } from "service/UserContext";
 import { UserContextTypes, GuestNameContextTypes, UserInfoSS } from "types";
 import TabsPanel from "component/QuestionsPane/Tabs";
 import { Button } from "@material-ui/core";
+import "@convergencelabs/monaco-collab-ext/css/monaco-collab-ext.min.css";
 
 const Dashboard = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -62,7 +62,7 @@ const Dashboard = () => {
     });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const retrivedKeyString = localStorage.getItem("shouldShow");
     const retrivedKey = retrivedKeyString ? JSON.parse(retrivedKeyString) : true;
 
@@ -78,20 +78,8 @@ const Dashboard = () => {
     socket.on("new-user-joined", (data: UserInfoSS) => {
       setPartnerUser(data);
       displayNotification(data, true);
-      console.log(MonacoEditorRef.current?.getValue());
-      // socket.emit("send-code-to-new-user", id, code);
-    });
-
-    // roomID
-    // socket.emit("sync-new-user-code", id);
-    // socket.on("someone-asking-for-code", () => {
-    //   console.log(code);
-    // socket.emit("send-code-to-new-user", id, code);
-    // });
-
-    socket.on("set-code", (partnerCode: string) => {
-      console.log(partnerCode);
-      setCode(partnerCode);
+      const userCode = MonacoEditorRef.current?.getValue();
+      socket.emit("send-code-to-new-user", id, userCode);
     });
 
     socket.on("room-full", () => {
@@ -103,13 +91,19 @@ const Dashboard = () => {
     });
   }, []);
 
+  useEffect(() => {
+    socket.on("set-code", (partnerCode: string) => {
+      console.log(partnerCode);
+      setCode(partnerCode);
+    });
+  }, [socket, code]);
+
   const resetEditorLayout = () => {
     const height = Math.floor(TextAreaRef!.current!.clientHeight);
     const adjustedRows = height > 340 ? height / 27 : height / 39;
     setRows(Math.floor(adjustedRows));
     MonacoEditorRef.current.layout();
   };
-  // console.log(MonacoEditorRef.current?.getValue());
 
   return (
     <>
