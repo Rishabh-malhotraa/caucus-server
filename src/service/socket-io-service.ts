@@ -38,7 +38,6 @@ const chatService = (httpServer: ServerType): void => {
     });
 
     socket.on("send-code-to-new-user", (roomID: string, code: string) => {
-      console.log(code);
       socket.broadcast.to(roomID).emit("set-code", code);
     });
 
@@ -61,6 +60,11 @@ const chatService = (httpServer: ServerType): void => {
     socket.on("selected-question", (props) => {
       const roomID = props.roomID;
       socket.broadcast.to(roomID).emit("emit-selected-question", props.data);
+    });
+
+    socket.on("codeforces", (props) => {
+      const roomID = props.roomID;
+      socket.broadcast.to(roomID).emit("emit-codeforces", props.data);
     });
 
     socket.on("code-executed", (props) => {

@@ -9,12 +9,10 @@ import { OAUTH_TABLE } from "../types";
 const date = new Date().toISOString();
 
 passport.serializeUser((user: any, done) => {
-  // console.log(user);
   done(null, user);
 });
 
 passport.deserializeUser(async (response: OAUTH_TABLE, done) => {
-  // console.log(response);
   try {
     const userRows = await knex<OAUTH_TABLE>("oauth").select().where({ user_id: response.user_id });
     const user = userRows[0];

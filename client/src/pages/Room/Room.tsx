@@ -10,13 +10,13 @@ import ChatApp from "component/TextChat";
 import VoiceChat from "component/VoiceChat/VoiceChat";
 import { useParams } from "react-router-dom";
 import MonacoEditor from "component/Editor/MonacoEditor";
+import "@convergencelabs/monaco-collab-ext/css/monaco-collab-ext.min.css";
 import clsx from "clsx";
 import { GuestNameContext } from "service/GuestNameContext";
 import { UserContext } from "service/UserContext";
 import { UserContextTypes, GuestNameContextTypes, UserInfoSS } from "types";
 import TabsPanel from "component/QuestionsPane/Tabs";
 import { Button } from "@material-ui/core";
-import "@convergencelabs/monaco-collab-ext/css/monaco-collab-ext.min.css";
 
 const Dashboard = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
