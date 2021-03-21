@@ -1,6 +1,6 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import Editor from "@monaco-editor/react";
-import { Convergence } from "@convergence/convergence";
+import { Convergence, RealTimeModel } from "@convergence/convergence";
 import { CONVERGENCE_URL } from "config.keys";
 import MonacoConvergenceAdapter from "./MonacoAdapter";
 import { GuestNameContext } from "service/GuestNameContext";
@@ -46,6 +46,7 @@ const MonacoEditor: React.FC<AppProps> = ({ code, defaultCode, setCode, MonacoEd
         });
       })
       .then((model) => {
+        //@ts-ignore
         const adapter = new MonacoConvergenceAdapter(MonacoEditorRef.current, model.elementAt("text"));
         adapter.bind();
       })
@@ -61,18 +62,21 @@ const MonacoEditor: React.FC<AppProps> = ({ code, defaultCode, setCode, MonacoEd
   }, []);
 
   useEffect(() => {
-    MonacoEditorRef.current?.setValue("");
+    // MonacoEditorRef.current?.setValue("");
     MonacoEditorRef.current?.setValue(defaultCode);
-    if (defaultCode !== code) {
-    }
+    console.log("are you setting code here");
+    console.log(defaultCode);
+    // if (defaultCode !== code) {
+    // }
   }, [defaultCode]);
+  //@ts-ignore
 
   return (
     <div style={{ flexGrow: 1, overflow: "hidden" }}>
       <Editor
         onMount={(editor) => handleEditorDidMount(editor)}
         theme={theme}
-        // defaultValue={defaultCode}
+        // defaultValue={code}
         language={language}
         onChange={(value) => setCode(value || "")}
         options={{ wordWrap: "on", fontSize: fontSize, autoIndent: "advanced" }}
