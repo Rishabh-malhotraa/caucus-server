@@ -61,9 +61,9 @@ const MonacoEditor: React.FC<AppProps> = ({ code, defaultCode, setCode, MonacoEd
   }, []);
 
   useEffect(() => {
+    MonacoEditorRef.current?.setValue("");
+    MonacoEditorRef.current?.setValue(defaultCode);
     if (defaultCode !== code) {
-      MonacoEditorRef.current?.setValue("");
-      MonacoEditorRef.current?.setValue(defaultCode);
     }
   }, [defaultCode]);
 
