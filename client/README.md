@@ -5,6 +5,7 @@
 -->
 
 <!-- PROJECT SHIELDS -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -65,21 +66,21 @@
 
 <br/>
 
-### Collaborative Code Editor  
- [![Product Name Screen Shot][product-screenshotI]](http://caucus-app.herokuapp.com/)
+### Collaborative Code Editor
 
-|  Login Page | Navigate Rooms Page
-|:-------------------------:|:-------------------------:
- [![Product Name Screen Shot][product-screenshotII]](http://caucus-app.herokuapp.com/)|[![Product Name Screen Shot][product-screenshotIII]](http://caucus-app.herokuapp.com/)  
+[![Product Name Screen Shot][product-screenshoti]](http://caucus-app.herokuapp.com/)
+
+|                                      Login Page                                       |                                  Navigate Rooms Page                                   |
+| :-----------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
+| [![Product Name Screen Shot][product-screenshotii]](http://caucus-app.herokuapp.com/) | [![Product Name Screen Shot][product-screenshotiii]](http://caucus-app.herokuapp.com/) |
 
 <br />
 
-
 ### Built With
 
-* [React](https://reactjs.org/docs/getting-started.html)
-* [Material UI](https://material-ui.com/getting-started/installation/)
-* [ConvergenceLabs](https://convergencelabs.com/)
+- [React](https://reactjs.org/docs/getting-started.html)
+- [Material UI](https://material-ui.com/getting-started/installation/)
+- [ConvergenceLabs](https://convergencelabs.com/)
 
 Written in TypeScript ♥
 
@@ -91,7 +92,7 @@ Follow the instructions to set up the project on your local machine.
 
 This is an example of how to list things you need to use the software and how to install them.
 
-* npm
+- npm
 
   ```sh
   npm install npm@latest -g
@@ -107,28 +108,30 @@ This is an example of how to list things you need to use the software and how to
 
 2. Install NPM packages
 
-   ``` sh
+   ```sh
    npm install
    ```
 
 3. Start the react server
 
-   ``` sh
+   ```sh
    npm run start
    ```
-  
-4. Add Enviroment Variables 
-    ```
-    REACT_APP_CLIENT_URL = https://localhost:3000
-    REACT_APP_SERVER_URL = https://localhost:5000
-    REACT_APP_CONVERGENCE_URL = https://localhost:8080 
-    ```
 
-5. Download Docker Desktop and then download convergence omnibus from docker hub and then start the server 
+4. Add Enviroment Variables
 
-    ``` sh
-    docker pull convergencelabs/convergence-omnibus
-    ```
+   ```
+   REACT_APP_CLIENT_URL = https://localhost:3000
+   REACT_APP_SERVER_URL = https://localhost:5000
+   REACT_APP_CONVERGENCE_URL = https://localhost:8080
+   ```
+
+5. Download Docker Desktop and then download convergence omnibus from docker hub and then start the server
+
+   ```sh
+   docker pull convergencelabs/convergence-omnibus
+   ```
+
 ## Roadmap
 
 See the [open issues](https://github.com/Rishabh-malhotraa/caucus/issues) for a list of proposed features (and known issues).
@@ -137,12 +140,12 @@ See the [open issues](https://github.com/Rishabh-malhotraa/caucus/issues) for a 
 
 - [x] Inital Login Page
 - [x] Database hookup with login from oAuth
-- [x] Chat Application 
+- [x] Chat Application
 - [x] Video Chat Application (the main chunk of work)
 - [x] Collaborative Editing (the main chunk of work)
 - [x] Resizable Panes
 - [x] Code Running (Easy need to just hookup with an api)
-- [x] Database with all the leetcode question and sorted based on tags. 
+- [x] Database with all the leetcode question and sorted based on tags.
 
 ## Contributing
 
@@ -170,18 +173,25 @@ Project Link: [http://caucus-app.herokuapp.com/](http://caucus-app.herokuapp.com
 
 ---
 
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/rishabh-malhotraa/caucus.svg)](https://starchart.cc/rishabh-malhotraa/caucus)
+
+---
+
 ## Acknowledgements
 
-* [Heroku](https://www.heroku.com/)
-* [Azure](https://azure.microsoft.com/en-us/)
-* [notistack](https://www.npmjs.com/package/notistack)
-* [axios](https://www.npmjs.com/package/axios)
-* [dog-names](https://www.npmjs.com/package/dog-names)
-* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
-* [MIT License](https://opensource.org/licenses/MIT)
-* [SVG Backgrounds](https://www.svgbackgrounds.com/)
-  
+- [Heroku](https://www.heroku.com/)
+- [Azure](https://azure.microsoft.com/en-us/)
+- [notistack](https://www.npmjs.com/package/notistack)
+- [axios](https://www.npmjs.com/package/axios)
+- [dog-names](https://www.npmjs.com/package/dog-names)
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+- [MIT License](https://opensource.org/licenses/MIT)
+- [SVG Backgrounds](https://www.svgbackgrounds.com/)
+
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/Rishabh-malhotraa/caucus.svg?style=for-the-badge
 [contributors-url]: https://github.com/Rishabh-malhotraa/caucus/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Rishabh-malhotraa/caucus.svg?style=for-the-badge
@@ -194,6 +204,6 @@ Project Link: [http://caucus-app.herokuapp.com/](http://caucus-app.herokuapp.com
 [license-url]: https://github.com/Rishabh-malhotraa/caucus/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/rishabh-malhotra-4536a418b
-[product-screenshotI]: images/code-editor.png
-[product-screenshotII]: images/login-page.png
-[product-screenshotIII]: images/navigation-page.png
+[product-screenshoti]: images/code-editor.png
+[product-screenshotii]: images/login-page.png
+[product-screenshotiii]: images/navigation-page.png
