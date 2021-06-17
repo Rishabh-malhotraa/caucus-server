@@ -52,11 +52,11 @@ app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
 socketioService(httpServer);
 
-app.use(express.static(path.join(__dirname, "/../client/build")));
+app.use(express.static(path.join(__dirname, "/../client")));
 
 // Handles any requests that don't match the ones above
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/../client/build/index.html"));
+  res.sendFile(path.join(__dirname + "/../client/index.html"));
 });
 
 httpServer.listen(port, () => console.log(chalk.blueBright(`Express Server listening to port ${port}`)));

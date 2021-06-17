@@ -10,7 +10,8 @@
   "homepage": "https://github.com/rishabh-malhotraa/caucus-client",
   "repository": "github:rishabh-malhtoraa/caucus-client",
   "bugs": "https://github.com/rishabh-malhotraa/caucus-client/issues",
-  "main": "build/index.js",
+  "main": "dist/index.js",
+  "proxy": "https://caucus-app.herokuapp.com/",
   "scripts": {
     "build-ts": "tsc",
     "postinstall": "npm run build-ts",
@@ -19,7 +20,6 @@
     "dev": "nodemon --exec ts-node src/index.ts",
     "format": "prettier --write \"src/**/*.ts\""
   },
-  "proxy": "http://localhost:3000",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
@@ -36,7 +36,6 @@
     "passport-github": "^1.1.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-twitter": "^1.0.4",
-    "peer": "^0.6.1",
     "pg": "^8.5.1",
     "project-name-generator": "^2.1.9",
     "socket.io": "^3.1.0",

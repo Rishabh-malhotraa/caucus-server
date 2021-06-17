@@ -1,10 +1,9 @@
-import { CLIENT_URL as url } from "../config.keys";
+import { CLIENT_URL } from "../config.keys";
 import { Server, Socket } from "socket.io";
 import { ServerType } from "../index";
 import { MessageProps, UserInfo } from "../types";
 import chalk from "chalk";
 
-const CLIENT_URL = url.replace(/^https:\/\//i, "http://");
 const chatService = (httpServer: ServerType): void => {
   const io = new Server(httpServer, {
     cors: {
@@ -35,10 +34,6 @@ const chatService = (httpServer: ServerType): void => {
         socket.emit("room-full");
         return;
       }
-    });
-
-    socket.on("send-code-to-new-user", (roomID: string, code: string) => {
-      socket.broadcast.to(roomID).emit("set-code", code);
     });
 
     socket.on("send-message", (body: MessageProps) => {

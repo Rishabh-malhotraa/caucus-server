@@ -3,7 +3,7 @@ certs/**/*
 src/data
 .env
 dist/**/*
-dist
+dist/
 
 client/.env
 

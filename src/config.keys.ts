@@ -43,8 +43,4 @@ export const COOKIE_KEYS = [process.env.COOKIE_KEYS!];
 
 export const JDOODLE_URL = process.env.JDOODLE_URL!;
 
-export const CLIENT_URL = process.env.CLIENT_URL!;
-
-export const REACT_SERVER_URL = process.env.REACT_APP_SERVER_URL! || "http://localhost:5000";
-export const REACT_CLIENT_URL = process.env.REACT_APP_CLIENT_URL! || "http://localhost:3000";
-export const REACT_CONVERGENCE_URL = process.env.REACT_APP_CONVERGENCE_URL!;
+export const CLIENT_URL = SERVER_URL || process.env.CLIENT_URL!;
