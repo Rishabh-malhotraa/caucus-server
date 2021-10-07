@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-// .dotenv why you do me dirty like this FML
+// .dotenv why you do me dirty like this D:
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -39,8 +39,8 @@ export const port = parseInt(<string>process.env.PORT) || 5000;
 
 export const SERVER_URL = process.env.SERVER_URL!;
 
+export const CLIENT_URL = SERVER_URL || process.env.CLIENT_URL!;
+
 export const COOKIE_KEYS = [process.env.COOKIE_KEYS!];
 
 export const JDOODLE_URL = process.env.JDOODLE_URL!;
-
-export const CLIENT_URL = SERVER_URL || process.env.CLIENT_URL!;
