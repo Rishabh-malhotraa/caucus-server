@@ -127,14 +127,12 @@ This is an example of how to list things you need to use the software and how to
     GOOGLE_KEY_CLIENTSECRET= https://console.cloud.google.com/apis/credentials
     TWITTER_KEY_CONSUMERKEY = https://developer.twitter.com/en/portal/projects
     TWITTER_KEY_CONSUMERSECRET =https://developer.twitter.com/en/portal/projects
-    JDOODLE_CLIENTID=https://www.jdoodle.com/
-    JDOOLDE_CLIENTSECRET= https://www.jdoodle.com/
     COOKIE_KEYS= your-cookie-secrert
     PROD= false
     DATABASE_URL = postgresql://postgres:password@localhost:5432/rtce
     CLIENT_URL = http://localhost:3000
-    JDOODLE_URL = https://api.jdoodle.com/v1/execute
     SERVER_URL = http://localhost:5000
+    PISTON_URL= https://emkc.org/api/v2/piston
    ```
 
 ## Roadmap
