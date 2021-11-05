@@ -15,15 +15,18 @@ import path from "path";
 
 const app = express();
 const httpServer = new http.Server(app);
-const CLIENT_URL = url.replace(/^https:\/\//i, "http://");
+// const CLIENT_URL = url.replace(/^https:\/\//i, "http://");
 
-app.use(
-  cors({
-    origin: CLIENT_URL,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true, // allow session cookies from browser to pass throught
-  })
-);
+// app.use(
+//   cors({
+//     origin: CLIENT_URL,
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true, // allow session cookies from browser to pass throught
+//   })
+// );
+
+app.use(cors());
+
 app.use(cookieParser());
 
 app.set("trust proxy", 1);
