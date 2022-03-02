@@ -1,3 +1,9 @@
+# 📣 Announcements
+
+🆕 02-03-2022: Moving the contents of this repository to [caucus](https://github.com/Rishabh-malhotraa/caucus), for better Developer experience and making it easier to setup the project. **This repo would be archived.**
+
+---
+
 <!--
 *** Thanks for checking out the caucus. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
