@@ -28,11 +28,6 @@ export const TWITTER_KEY: Record<string, string> = {
   consumerSecret: process.env.TWITTER_KEY_CONSUMERSECRET!,
 };
 
-export const JDOODLE = {
-  clientID: process.env.JDOODLE_CLIENTID,
-  clientSecret: process.env.JDOOLDE_CLIENTSECRET,
-};
-
 export const PROD: boolean = JSON.parse(process.env.PROD!);
 
 export const port = parseInt(<string>process.env.PORT) || 5000;
@@ -43,4 +38,4 @@ export const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5000";
 
 export const COOKIE_KEYS = [process.env.COOKIE_KEYS!];
 
-export const JDOODLE_URL = process.env.JDOODLE_URL!;
+export const PISTON_URL = process.env.PISTON_URL;
